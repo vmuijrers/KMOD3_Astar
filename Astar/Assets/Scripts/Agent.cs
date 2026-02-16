@@ -11,6 +11,7 @@ public class Agent : MonoBehaviour
     private GameObject targetVisual;
     private MazeGeneration maze;
     private LineRenderer line;
+    
     private void Awake()
     {
         maze = FindObjectOfType<MazeGeneration>();
@@ -45,7 +46,6 @@ public class Agent : MonoBehaviour
         }
     }
 
-
     //Move to clicked position
     public void Update()
     {
@@ -75,6 +75,7 @@ public class Agent : MonoBehaviour
         }
 
     }
+    
     public Vector3 MouseToWorld()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -90,10 +91,12 @@ public class Agent : MonoBehaviour
     {
         return new Vector2Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.z));
     }
+    
     private Vector3 Vector2IntToVector3(Vector2Int pos, float YPos = 0)
     {
         return new Vector3(Mathf.RoundToInt(pos.x), YPos, Mathf.RoundToInt(pos.y));
     }
+    
     private void OnDrawGizmos()
     {
         if (path != null && path.Count > 0)
